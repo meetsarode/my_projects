@@ -10,7 +10,6 @@ classname = []
 path = 'team'
 mylist = os.listdir(path)
 
-
 def run_database ():
     call(['python',"C:\\Users\\sarod\\coding material\\python\\pypr\\database.py"])
 
@@ -106,3 +105,4 @@ except Exception as e:
 finally:
     cap.release()
     cv2.destroyAllWindows()
+# end

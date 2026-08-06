@@ -1,7 +1,7 @@
 import random 
 from tkinter import *
 from itertools import count
-# this answers are in the real book 
+# this answers are in the real book
 answer = [
            "YES", "DEFINITELY", "ABSOLUTELY", "IT IS CERTAIN", 
            "YOU ARE SURE TO HAVE SUPPORT", "GOOD THINGS ARE SEEKING YOU out",
