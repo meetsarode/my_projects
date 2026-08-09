@@ -10,70 +10,104 @@ struct user
     string userName;
     string password;
     string accountName;
-
 };
 
-class passmanager{
-    private:
-        string LoginUserName;
-        string Loginpassword;
-        vector<user> listofusers;
+class passmanager
+{
+private:
+    string LoginUserName;
+    string Loginpassword;
+    vector<user> listofusers;
 
-    public:
-         void xor_Encrypt_Decrypt(string &data ,const char &key);
-        void savetoFile();
-        void loadFromFile();
-        void mainMenu();
-        void addUser();
-        void deleteUser();
-        void updateUser();
-        void displayUser();
-        void searchUser();
-        void login_main_menu();
-        void regiUser();
-        void login();
-        void logout();
-    
-
+public:
+    void xor_Encrypt_Decrypt(string &data, const char &key);
+    void savetoFile();
+    void loadFromFile();
+    void mainMenu();
+    void addUser();
+    void deleteUser();
+    void updateUser();
+    void displayUser();
+    void searchUser();
+    void login_main_menu();
+    void regiUser();
+    void login();
+    void logout();
 };
 
-void passmanager::savetoFile(){
+void passmanager::savetoFile()
+{
     ofstream file(LoginUserName + ".txt");
     if (file.is_open())
     {
-        file<<LoginUserName<<"\n";
-        file<<Loginpassword<<"\n";
-        for (const auto& user :listofusers)
+        file << LoginUserName << "\n";
+        file << Loginpassword << "\n";
+        for (const auto &user : listofusers)
         {
-            file << user.userName <<"\n";
-            file << user.password <<"\n";
-            file << user.accountName <<"\n";
+            file << user.userName << "\n";
+            file << user.password << "\n";
+            file << user.accountName << "\n";
         }
         file.close();
-    }else
-    {
-        cout<< "Unable to open file for writing."<<endl;
     }
-
+    else
+    {
+        cout << "Unable to open file for writing." << endl;
+    }
 }
 
-void passmanager::loadFromFile(){
+void passmanager::loadFromFile()
+{
     ifstream file(LoginUserName + ".txt");
-    if (file.is_open()){
-        getline(file,LoginUserName);
-        getline(file,Loginpassword);
+    if (file.is_open())
+    {
+        getline(file, LoginUserName);
+        getline(file, Loginpassword);
         user user;
-        while (getline(file ,user.userName) && getline(file, user.password) && getline(file,user.accountName))
+        while (getline(file, user.userName) && getline(file, user.password) && getline(file, user.accountName))
         {
             listofusers.push_back(user);
         }
         file.close();
-    }else{
-        cout << "Unable to open file for reading." <<endl;
+    }
+    else
+    {
+        cout << "Unable to open file for reading." << endl;
     }
 }
 
-int main(){
-    cout<<"hello world";
+void passmanager ::login_main_menu()
+{
+    int choice;
+    do
+    {
+        cout << "Welcome to the Password Manager !" << endl;
+        cout << "1. Resister" << endl;
+        cout << "2. login" << endl;
+        cout << "3. Exit" << endl;
+        cout << "Plese select an option : " << endl;
+        cin >> choice;
+        cin.ignore();
+        system("clear");
+        switch (choice)
+        {
+        case 1:
+            regiUser();
+            break;
+        case 2:
+            login();
+            break;
+        case 3:
+            cout << "Exiting the program." << endl;
+            break;
+        default:
+            cout << "Invalid choice. plese try again." << endl;
+        }
+    } while(choice != 3);
+}
+
+int main()
+{
+    cout << "hello world";
     return 0;
 }
