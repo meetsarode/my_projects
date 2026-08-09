@@ -103,7 +103,31 @@ void passmanager ::login_main_menu()
         default:
             cout << "Invalid choice. plese try again." << endl;
         }
-    } while(choice != 3);
+    } while (choice != 3);
+}
+
+void passmanager ::regiUser()
+{
+    string inUsername, inpass;
+    cout << "Registering the new user ..." << endl;
+    cout << "Enter Username : ";
+    getline(cin, inUsername);
+    cout << "Enter password : ";
+    getline(cin, inpass);
+
+    ifstream file(LoginUserName + ".txt");
+    if (file.is_open())
+    {
+        cout << "Username already exists. Please choose a different username ." << endl;
+        file.close();
+    }else{
+        LoginUserName = inUsername ;
+        Loginpassword = inpass ;
+
+        savetoFile();
+        cout << "user registered successfully !" <<endl;
+        file.close();
+    }
 }
 
 int main()
