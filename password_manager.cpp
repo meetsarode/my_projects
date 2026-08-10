@@ -143,6 +143,7 @@ void passmanager ::login()
     ifstream file(inUsername + ".txt");
     if (file.is_open())
     {
+        file.close();
         LoginUserName = inUsername;
         loadFromFile();
         cout << "enter password : ";
@@ -151,7 +152,6 @@ void passmanager ::login()
         if (inpass == Loginpassword)
         {
             cout << "Login successful !" << endl;
-            file.close();
             mainMenu();
         }
         else{
@@ -159,6 +159,9 @@ void passmanager ::login()
             file.close();
             
         }
+    }
+    else{
+        cout << "Username not found . Plese register First ." <<endl;
     }
 }
 
