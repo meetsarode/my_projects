@@ -130,6 +130,16 @@ void passmanager ::regiUser()
     }
 }
 
+void passmanager :: login(){
+    string inputusername;
+    string inputpassword;
+    cout << "Logging in..." << endl;
+    cout << "Enter username : " ;
+    getline(cin,inputusername);
+    
+
+}
+
 int main()
 {
     cout << "hello world";
