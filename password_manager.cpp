@@ -120,24 +120,46 @@ void passmanager ::regiUser()
     {
         cout << "Username already exists. Please choose a different username ." << endl;
         file.close();
-    }else{
-        LoginUserName = inUsername ;
-        Loginpassword = inpass ;
+    }
+    else
+    {
+        LoginUserName = inUsername;
+        Loginpassword = inpass;
 
         savetoFile();
-        cout << "user registered successfully !" <<endl;
+        cout << "user registered successfully !" << endl;
         file.close();
     }
 }
 
-void passmanager :: login(){
-    string inputusername;
-    string inputpassword;
+void passmanager ::login()
+{
+    string inUsername;
+    string inpass;
     cout << "Logging in..." << endl;
-    cout << "Enter username : " ;
-    getline(cin,inputusername);
-    
+    cout << "Enter username : ";
+    getline(cin, inUsername);
 
+    ifstream file(inUsername + ".txt");
+    if (file.is_open())
+    {
+        LoginUserName = inUsername;
+        loadFromFile();
+        cout << "enter password : ";
+        getline(cin, inpass);
+
+        if (inpass == Loginpassword)
+        {
+            cout << "Login successful !" << endl;
+            file.close();
+            mainMenu();
+        }
+        else{
+            cout << "Incorrect password . plese try again." <<endl;
+            file.close();
+            
+        }
+    }
 }
 
 int main()
