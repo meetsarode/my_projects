@@ -165,7 +165,7 @@ void passmanager ::login()
     }
 }
 
-
+// main function--
 void passmanager ::mainMenu(){
     int choice;
     do
