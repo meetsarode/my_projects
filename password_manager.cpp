@@ -165,6 +165,30 @@ void passmanager ::login()
     }
 }
 
+
+void passmanager ::mainMenu(){
+    int choice;
+    do
+    {
+        cout << "________________________________________" << endl;
+        cout << "Welcome to the Password manager!" << endl;
+        cout << "1. Add User" << endl;
+        cout << "2. Delete user" << endl;
+        cout << "3. Update User" << endl;
+        cout << "4. Disply Users" << endl;
+        cout << "5. Search User" << endl;
+        cout << "6. Logout" << endl;
+        cout << "Plese select an option : " << endl;
+        cin >> choice;
+        cin.ignore();
+        system("clear");
+
+
+       
+    
+}
+
+
 int main()
 {
     cout << "hello world";
