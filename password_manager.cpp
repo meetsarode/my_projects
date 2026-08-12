@@ -182,7 +182,33 @@ void passmanager ::mainMenu(){
         cin >> choice;
         cin.ignore();
         system("clear");
-
+     switch (choice)
+        {
+        case 1:
+            addUser();
+            break;
+        
+        case 2:
+            deleteUser();
+            break;
+        case 3:
+            updateUser();
+            break;
+        case 4:
+            displayUser();
+            break;
+        case 5:
+            searchUser();
+            break;
+        case 6:
+            logout();
+            break;
+            
+        default:
+            cout << "Invalid choice. Plese try again" <<endl;
+            break;
+        }
+    } while (choice != 6);
 
        
     
