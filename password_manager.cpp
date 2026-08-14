@@ -133,6 +133,7 @@ void passmanager ::regiUser()
 }
 
 void passmanager ::login()
+
 {
     string inUsername;
     string inpass;
@@ -165,7 +166,6 @@ void passmanager ::login()
     }
 }
 
-// main function--
 void passmanager ::mainMenu(){
     int choice;
     do
@@ -214,6 +214,19 @@ void passmanager ::mainMenu(){
     
 }
 
+void passmanager :: addUser(){
+    user newuser;
+    cout << "Adding a new user..." << endl;
+    cout << "Enter username : " << endl;
+    getline(cin,newuser.userName);
+    cout << "Enter password : " <<endl;
+    getline(cin,newuser.password);
+    cout << "Enter account name : " <<endl;
+    getline(cin,newuser.accountName);
+
+    listofusers.push_back(newuser);
+    
+}
 
 int main()
 {
