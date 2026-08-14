@@ -225,7 +225,7 @@ void passmanager :: addUser(){
     getline(cin,newuser.accountName);
 
     listofusers.push_back(newuser);
-    
+    cout << "User added successfully !" << endl;
 }
 
 int main()
